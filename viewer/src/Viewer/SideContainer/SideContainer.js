@@ -5,7 +5,7 @@ import {Diagram2, Gear, Keyboard} from "react-bootstrap-icons";
 import "./SideContainer.scss";
 
 /**
- * Renders the side menu and accordian containers.
+ * Renders the side menu and accordion containers.
  * @return {JSX.Element}
  */
 export function SideContainer () {
@@ -16,9 +16,9 @@ export function SideContainer () {
     const downValueX = useRef();
 
     const SIDE_MENU_WIDTH = 50;
-    const ACCORDIAN_WIDTH = 200;
+    const ACCORDION_WIDTH = 200;
     const MIN_EDITOR_WIDTH = 400;
-    const MIN_ACCORDIAN_WIDTH = 200;
+    const MIN_ACCORDION_WIDTH = 200;
 
     const handleMouseDown = (e) => {
         e.preventDefault();
@@ -34,8 +34,8 @@ export function SideContainer () {
         e.stopPropagation();
         const delta = e.clientX - downValueX.current;
         const newWidth = accordion.current.getBoundingClientRect().width + delta;
-        const MAX_ACCORDIAN_WIDTH = document.body.clientWidth - SIDE_MENU_WIDTH - MIN_EDITOR_WIDTH;
-        if (newWidth > MIN_ACCORDIAN_WIDTH && newWidth < MAX_ACCORDIAN_WIDTH) {
+        const MAX_ACCORDION_WIDTH = document.body.clientWidth - SIDE_MENU_WIDTH - MIN_EDITOR_WIDTH;
+        if (newWidth > MIN_ACCORDION_WIDTH && newWidth < MAX_ACCORDION_WIDTH) {
             accordion.current.style.width = newWidth + "px";
             downValueX.current = e.clientX;
         }
@@ -80,7 +80,7 @@ export function SideContainer () {
                         style={{color: activeMenu == 2 ? "white": "grey"}}/>
                 </div>
             </div>
-            <div className="accordion" ref={accordion} style={{width: ACCORDIAN_WIDTH+"px"}}>
+            <div className="accordion" ref={accordion} style={{width: ACCORDION_WIDTH+"px"}}>
                 {getActiveMenuComponent()}
             </div>
             <div className="handle" ref={handle} onMouseDown={handleMouseDown}></div>
