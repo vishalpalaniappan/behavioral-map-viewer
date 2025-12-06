@@ -3,19 +3,24 @@ import sdgMeta from "../../Data/library_manager_meta.json";
 const PRINT_TO_CONSOLE = true;
 const INDENT_SPACES = 2;
 
+/**
+ * Apply custom layout algorithm to visualize the
+ * semantic design graph.
+ * @param {Object} node
+ */
 export const applyCustomLayoutAlgorithm = (node) => {
-    // This function will implement the custom layout algorithm for a
-    // given node to visualize it in the viewer.
-
-    console.log(node);
     if ("abstractions" in node) {
         const levelWidth= visitLevel(node, 1);
         console.log("Level Width Final:", levelWidth);
     }
+
+    console.log(node);
+    // TODO: Calculate the layout positions through the levels
+    // that were calculated.
 };
 
 const visitLevel = (node, level) => {
-    // Get the current level width, which is the number
+    // Get the current lvl width, which is the number
     // of abstractions in this node.
     let levelWidth = node["abstractions"].length;
     node["abstractions"].forEach((node, index) => {
