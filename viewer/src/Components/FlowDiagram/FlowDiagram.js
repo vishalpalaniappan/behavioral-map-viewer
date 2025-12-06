@@ -9,13 +9,12 @@ import {
     useNodesState,
     useReactFlow
 } from "@xyflow/react";
-import PropTypes, {nominalTypeHack} from "prop-types";
+import PropTypes from "prop-types";
 
 import SdgContext from "../../Providers/SdgContext.js";
 import SelectedModuleContext from "../../Providers/SelectedModuleContext.js";
-import {getLayoutedElements} from "./DagreLayout.js";
+import {applyCustomLayoutAlgorithm} from "./CustomLayoutAlgorithm.js";
 import example from "./exampleFlow.json";
-import {getLayoutInfoFromTree} from "./helper.js";
 
 import "@xyflow/react/dist/style.css";
 
@@ -47,7 +46,7 @@ export function Flow ({tree}) {
 
     useEffect(() => {
         if (tree) {
-            console.log(example);
+            applyCustomLayoutAlgorithm(tree);
 
             example.edges.forEach((edge, value) => {
                 if (edge.style === "arrowStyle") {
@@ -71,6 +70,7 @@ export function Flow ({tree}) {
             edges={edges}
             onNodesChange={onNodesChange}
             onEdgesChange={onEdgesChange}
+            nodesDraggable={false}
             colorMode={"dark"}
             fitView
         >
