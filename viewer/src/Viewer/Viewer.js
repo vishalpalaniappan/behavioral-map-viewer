@@ -1,8 +1,8 @@
 import React from "react";
 
+import {FlowDiagram} from "../Components/FlowDiagram/FlowDiagram";
 import {SideContainer} from "./SideContainer/SideContainer";
 import {StatusBarContainer} from "./StatusBarContainer/StatusBarContainer";
-import { FlowDiagram } from "../Components/FlowDiagram/FlowDiagram";
 
 import "./Viewer.scss";
 
