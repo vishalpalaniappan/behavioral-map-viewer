@@ -1,7 +1,6 @@
-import React, {useContext} from "react";
+import React, {useContext, useEffect} from "react";
 
-import sdgMetadata from "../../Data/library_manager_meta.json";
-import sdg from "../../Data/library_manager_sdg.json";
+import SdgContext from "../../Providers/SdgContext";
 
 import "./SdgAbstractions.scss";
 
@@ -13,10 +12,23 @@ SdgAbstractions.propTypes = {
  * @return {JSX.Element}
  */
 export function SdgAbstractions ({}) {
-    console.log(sdgMetadata, sdg);
+    const {sdg, sdgMetadata} = useContext(SdgContext);
+
+    useEffect(() => {
+        if (sdg) {
+            console.log("Sdg:", sdg);
+        }
+    }, [sdg]);
+
+    useEffect(() => {
+        if (sdg) {
+            console.log("Sdg Metadata:", sdgMetadata);
+        }
+    }, [sdgMetadata]);
+
     return (
         <div id="abstractions-container">
-            asdf
+            
         </div>
     );
 }

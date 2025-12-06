@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import PropTypes from "prop-types";
+
+import sdgMetadataJSON from "../Data/library_manager_meta.json";
+import sdgJSON from "../Data/library_manager_sdg.json";
+import SdgContext from "./SdgContext";
 
 GlobalProviders.propTypes = {
     children: PropTypes.object,
@@ -12,10 +16,14 @@ GlobalProviders.propTypes = {
  * @return {JSX}
  */
 function GlobalProviders ({children}) {
+    console.log(sdgMetadata, sdg);
+    const [sdg, setSdg] = useState(sdgJSON);
+    const [sdgMetadata, setSdgMetadata] = useState(sdgMetadataJSON);
+
     return (
-        <div>
+        <SdgContext.Provider value={{sdg, sdgMetadata}}>
             {children}
-        </div>
+        </SdgContext.Provider>
     );
 };
 
