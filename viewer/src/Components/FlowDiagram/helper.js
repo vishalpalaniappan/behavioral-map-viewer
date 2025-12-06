@@ -25,7 +25,7 @@ export const getLayoutInfoFromTree = (tree, animated) => {
         tree[branchName].forEach((node, index) => {
             // Position doesn't matter, it will be set by layout algorithm
             const flowNode = {
-                id: node,
+                id: `${branchName}-${index}`,
                 flowId: node,
                 position: {x: 250, y: index * 200},
                 data: {label: String(node)},
