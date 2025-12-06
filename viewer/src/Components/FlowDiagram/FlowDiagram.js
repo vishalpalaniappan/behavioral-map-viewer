@@ -10,6 +10,8 @@ import {
 } from "@xyflow/react";
 import PropTypes from "prop-types";
 
+import SdgContext from "../../Providers/SdgContext.js";
+import SelectedModuleContext from "../../Providers/SelectedModuleContext.js";
 import {getLayoutedElements} from "./DagreLayout.js";
 import {getLayoutInfoFromTree} from "./helper.js";
 
@@ -31,24 +33,24 @@ export function Flow ({tree}) {
 
     useEffect(() => {
         if (tree) {
-            const flowInfo = getLayoutInfoFromTree(tree.data, tree.animated ?? false);
+            // const flowInfo = getLayoutInfoFromTree(tree.data, tree.animated ?? false);
 
-            // direction: TB, BT, LR, or RL,
-            // where T = top, B = bottom, L = left, and R = right.
-            const layouted = getLayoutedElements(
-                flowInfo.nodes,
-                flowInfo.edges,
-                {
-                    direction: tree.orientation,
-                    ranksep: 70,
-                    nodesep: 250,
-                }
-            );
+            // // direction: TB, BT, LR, or RL,
+            // // where T = top, B = bottom, L = left, and R = right.
+            // const layouted = getLayoutedElements(
+            //     flowInfo.nodes,
+            //     flowInfo.edges,
+            //     {
+            //         direction: tree.orientation,
+            //         ranksep: 70,
+            //         nodesep: 250,
+            //     }
+            // );
 
-            setNodes([...layouted.nodes]);
-            setEdges([...layouted.edges]);
+            // setNodes([...layouted.nodes]);
+            // setEdges([...layouted.edges]);
 
-            fitView();
+            // fitView();
         }
     }, [tree]);
 
@@ -73,16 +75,16 @@ export function Flow ({tree}) {
 export function FlowDiagram () {
     const [tree, setTree] = useState();
 
+    const {sdg, sdgMetadata} = useContext(SdgContext);
+    const {selectedModule} = useContext(SelectedModuleContext);
+
     useEffect(() => {
-        const obj = {};
-        obj["orientation"] = "TB";
-        obj["data"] = {
-            "branch1": ["a", "b", "c", "p"],
-            "branch2": ["a", "b", "d", "x"],
-            "branch3": ["a", "f", "g", "x"],
-        };
-        setTree(obj);
-    }, []);
+        if (selectedModule && sdg) {
+            const map = sdg.modules[selectedModule.key];
+            console.log("Loaded Map:", map);
+            setTree(map);
+        }
+    }, [selectedModule]);
 
     return (
         <ReactFlowProvider>
