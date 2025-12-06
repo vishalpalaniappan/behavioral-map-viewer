@@ -11,7 +11,7 @@ import "./SideContainer.scss";
 export function SideContainer () {
     const [activeMenu, setActiveMenu] = useState(1);
 
-    const accordian = useRef();
+    const accordion = useRef();
     const handle = useRef();
     const downValueX = useRef();
 
@@ -33,10 +33,10 @@ export function SideContainer () {
         e.preventDefault();
         e.stopPropagation();
         const delta = e.clientX - downValueX.current;
-        const newWidth = accordian.current.getBoundingClientRect().width + delta;
+        const newWidth = accordion.current.getBoundingClientRect().width + delta;
         const MAX_ACCORDIAN_WIDTH = document.body.clientWidth - SIDE_MENU_WIDTH - MIN_EDITOR_WIDTH;
         if (newWidth > MIN_ACCORDIAN_WIDTH && newWidth < MAX_ACCORDIAN_WIDTH) {
-            accordian.current.style.width = newWidth + "px";
+            accordion.current.style.width = newWidth + "px";
             downValueX.current = e.clientX;
         }
     }, []);
@@ -80,7 +80,7 @@ export function SideContainer () {
                         style={{color: activeMenu == 2 ? "white": "grey"}}/>
                 </div>
             </div>
-            <div className="accordian" ref={accordian} style={{width: ACCORDIAN_WIDTH+"px"}}>
+            <div className="accordion" ref={accordion} style={{width: ACCORDIAN_WIDTH+"px"}}>
                 {getActiveMenuComponent()}
             </div>
             <div className="handle" ref={handle} onMouseDown={handleMouseDown}></div>

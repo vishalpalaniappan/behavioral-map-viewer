@@ -9,8 +9,7 @@ StatusBar.propTypes = {
  * Status bar of the viewer component.
  * @return {JSX.Element}
  */
-export function StatusBar ({}) {
-
+export function StatusBar () {
     return (
         <div id="status-bar">
             <div className="status-bar">
