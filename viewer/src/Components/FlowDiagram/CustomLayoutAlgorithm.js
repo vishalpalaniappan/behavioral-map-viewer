@@ -9,17 +9,25 @@ export const applyCustomLayoutAlgorithm = (node) => {
 
     console.log(node);
     if ("abstractions" in node) {
-        visitLevel(node["abstractions"], 1);
+        const levelWidth= visitLevel(node, 1);
+        console.log("Level Width Final:", levelWidth);
     }
 };
 
-const visitLevel = (nodes, level) => {
-    nodes.forEach((node, index) => {
+const visitLevel = (node, level) => {
+    // Get the current level width, which is the number
+    // of abstractions in this node.
+    let levelWidth = node["abstractions"].length;
+    node["abstractions"].forEach((node, index) => {
         printToConsole(sdgMeta[node.id], level);
         if ("abstractions" in node) {
-            visitLevel(node["abstractions"], level + 1);
+            // Increase the level width by the childrens width
+            levelWidth += visitLevel(node, level + 1);
         }
     });
+    node.level = level;
+    node.levelWidth = levelWidth;
+    return levelWidth;
 };
 
 const printToConsole = (meta, level) => {
