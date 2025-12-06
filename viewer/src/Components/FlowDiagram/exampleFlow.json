@@ -1,0 +1,95 @@
+{
+    "nodes": [
+        {
+            "id": "a",
+            "flowId": "a",
+            "position": {"x": 250, "y": 100},
+            "data": {"label": "Create Basket"}
+        },
+        {
+            "id": "b",
+            "flowId": "b",
+            "position": {"x": 250, "y": 200},
+            "data": {"label": "Create Shelf"}
+        },
+        {
+            "id": "whileLoop",
+            "type": "group",
+            "position": {
+                "x": -100,
+                "y": 300
+            },
+            "style": {
+                "width": 800,
+                "height": 180,
+                "background": "#000000"
+            }
+        },
+        {
+            "id": "c",
+            "flowId": "c",
+            "position": {"x": 350, "y": 10},
+            "data": {"label": "Prompt User for Action"},
+            "parentId": "whileLoop",
+            "extent": "parent"
+        },
+        {
+            "id": "d",
+            "flowId": "d",
+            "position": {"x": 50, "y": 120},
+            "data": {"label": "Place Books on Shelf"},
+            "parentId": "whileLoop",
+            "extent": "parent"
+        },
+        {
+            "id": "e",
+            "flowId": "e",
+            "position": {"x": 230, "y": 120},
+            "data": {"label": "Accept Book"},
+            "parentId": "whileLoop",
+            "extent": "parent"
+        },
+        {
+            "id": "f",
+            "flowId": "f",
+            "position": {"x": 400, "y": 120},
+            "data": {"label": "Display Basket"},
+            "parentId": "whileLoop",
+            "extent": "parent"
+        }
+    ],
+    "edges": [
+        {
+            "id": "a-b",
+            "source": "a",
+            "target": "b",
+            "animated": true,
+            "markerEnd": "marker",
+            "style": "arrowStyle"
+        },
+        {
+            "id": "b-c",
+            "source": "b",
+            "target": "c",
+            "animated": true,
+            "markerEnd": "marker",
+            "style": "arrowStyle"
+        },
+        {
+            "id": "c-d",
+            "source": "c",
+            "target": "d",
+            "animated": true,
+            "markerEnd": "marker",
+            "style": "arrowStyle"
+        },
+        {
+            "id": "c-e",
+            "source": "c",
+            "target": "e",
+            "animated": true,
+            "markerEnd": "marker",
+            "style": "arrowStyle"
+        }
+    ]
+}
