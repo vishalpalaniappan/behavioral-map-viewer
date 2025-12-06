@@ -1,6 +1,7 @@
 import React, {useContext, useEffect, useState} from "react";
 
 import SdgContext from "../../Providers/SdgContext";
+import SelectedModuleContext from "../../Providers/SelectedModuleContext";
 import {SdgModule} from "./SdgModule/SdgModule";
 
 import "./SdgAbstractions.scss";
@@ -14,6 +15,8 @@ SdgAbstractions.propTypes = {
  */
 export function SdgAbstractions ({}) {
     const {sdg} = useContext(SdgContext);
+    const {setSelectedModule} = useContext(SelectedModuleContext);
+
     const [modules, setModules] = useState([]);
 
     useEffect(() => {
@@ -28,6 +31,7 @@ export function SdgAbstractions ({}) {
                     });
                 });
                 setModules(modules);
+                setSelectedModule(modules[0]);
             } else {
                 console.warn("Modules missing in sdg file.");
             }
