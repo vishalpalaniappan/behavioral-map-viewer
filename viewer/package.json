@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vishalpalaniappan/diagnostic-log-viewer.git"
+    "url": "git+https://github.com/vishalpalaniappan/behavioral-map-viewer.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/vishalpalaniappan/diagnostic-log-viewer/issues"
+    "url": "https://github.com/vishalpalaniappan/behavioral-map-viewer/issues"
   },
-  "homepage": "https://github.com/vishalpalaniappan/diagnostic-log-viewer#readme",
+  "homepage": "https://github.com/vishalpalaniappan/behavioral-map-viewer#readme",
   "dependencies": {
     "@dagrejs/dagre": "^1.1.8",
     "@microlink/react-json-view": "^1.24.0",
