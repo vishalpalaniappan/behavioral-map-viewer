@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 
 import PropTypes from "prop-types";
 
@@ -18,6 +18,8 @@ export function SdgModule ({module}) {
     }, [module]);
     return (
         <div className="module-container">
+            <div className="module-preview"></div>
+            <div className="module-name">{module.entry.name}</div>
         </div>
     );
 }

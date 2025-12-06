@@ -24,7 +24,7 @@ export function SdgAbstractions ({}) {
                     modules.push({
                         "key": key,
                         "index": index,
-                        "entry": sdg.modules[index],
+                        "entry": sdg.modules[key],
                     });
                 });
                 setModules(modules);
