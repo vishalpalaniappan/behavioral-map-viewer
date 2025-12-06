@@ -15,23 +15,20 @@ export const applyCustomLayoutAlgorithm = (node) => {
     }
 
     console.log(node);
-    // TODO: Calculate the layout positions through the levels
-    // that were calculated.
 };
 
 const visitLevel = (node, level) => {
-    // Get the current lvl width, which is the number
-    // of abstractions in this node.
+    // Get the width of the current level through how many
+    // conditional branches exist.
     let levelWidth = node["abstractions"].length;
     node["abstractions"].forEach((node, index) => {
         printToConsole(sdgMeta[node.id], level);
-        if ("abstractions" in node) {
-            // Increase the level width by the childrens width
+        if ("abstractions" in node && "type" in node && node["type"] === "conditional_branch") {
             levelWidth += visitLevel(node, level + 1);
         }
     });
     node.level = level;
-    node.levelWidth = levelWidth;
+    node.levelWidth = levelWidth - 1;
     return levelWidth;
 };
 
