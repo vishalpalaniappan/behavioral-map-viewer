@@ -1,0 +1,190 @@
+{
+    "nodes": [
+        {
+            "id": "a",
+            "position": {"x": 250, "y": 100},
+            "data": {"label": "Create Basket"}
+        },
+        {
+            "id": "b",
+            "position": {"x": 250, "y": 200},
+            "data": {"label": "Create Shelf"}
+        },
+        {
+            "id": "whileLoop",
+            "type": "group",
+            "position": {
+                "x": -100,
+                "y": 280
+            },
+            "style": {
+                "width": 800,
+                "height": 420,
+                "background": "#000000"
+            }
+        },
+        {
+            "id": "c",
+            "position": {"x": 350, "y": 50},
+            "data": {"label": "Prompt User for Action"},
+            "parentId": "whileLoop",
+            "extent": "parent"
+        },
+        {
+            "id": "d",
+            "position": {"x": 50, "y": 160},
+            "data": {"label": "Place Books on Shelf"},
+            "parentId": "whileLoop",
+            "extent": "parent"
+        },
+        {
+            "id": "e",
+            "position": {"x": 230, "y": 160},
+            "data": {"label": "Accept Book"},
+            "parentId": "whileLoop",
+            "extent": "parent"
+        },
+        {
+            "id": "f",
+            "position": {"x": 400, "y": 160},
+            "data": {"label": "Display Basket"},
+            "parentId": "whileLoop",
+            "extent": "parent"
+        },
+        {
+            "id": "g",
+            "position": {"x": 230, "y": 240},
+            "data": {"label": "Add Book to Basket"},
+            "parentId": "whileLoop",
+            "extent": "parent"
+        },
+        {
+            "id": "h",
+            "position": {"x": 400, "y": 240},
+            "data": {"label": "Display Book Shelf"},
+            "parentId": "whileLoop",
+            "extent": "parent"
+        },
+        {
+            "id": "i",
+            "flowId": "i",
+            "position": {"x": 570, "y": 160},
+            "data": {"label": "Exit"},
+            "parentId": "whileLoop",
+            "extent": "parent"
+        },
+        {
+            "id": "l",
+            "flowId": "l",
+            "position": {"x": 50, "y": 320},
+            "data": {"label": "Continue Loop"},
+            "parentId": "whileLoop",
+            "extent": "parent"
+        },
+        {
+            "id": "m",
+            "flowId": "m",
+            "position": {"x": 230, "y": 320},
+            "data": {"label": "Continue Loop"},
+            "parentId": "whileLoop",
+            "extent": "parent"
+        },
+        {
+            "id": "n",
+            "flowId": "n",
+            "position": {"x": 400, "y": 320},
+            "data": {"label": "Continue Loop"},
+            "parentId": "whileLoop",
+            "extent": "parent"
+        },
+        {
+            "id": "k",
+            "flowId": "k",
+            "position": {"x": 470, "y": 800},
+            "data": {"label": "Terminate Program"}
+        }
+    ],
+    "edges": [
+        {
+            "id": "a-b",
+            "source": "a",
+            "target": "b",
+            "animated": true,
+            "type": "smoothstep",
+            "markerEnd": "marker",
+            "style": "arrowStyle"
+        },
+        {
+            "id": "b-c",
+            "source": "b",
+            "target": "c",
+            "animated": true,
+            "type": "smoothstep",
+            "markerEnd": "marker",
+            "style": "arrowStyle"
+        },
+        {
+            "id": "c-d",
+            "source": "c",
+            "target": "d",
+            "animated": true,
+            "type": "smoothstep",
+            "markerEnd": "marker",
+            "style": "arrowStyle"
+        },
+        {
+            "id": "c-e",
+            "source": "c",
+            "target": "e",
+            "animated": true,
+            "type": "smoothstep",
+            "markerEnd": "marker",
+            "style": "arrowStyle"
+        },
+        {
+            "id": "c-f",
+            "source": "c",
+            "target": "f",
+            "animated": true,
+            "type": "smoothstep",
+            "markerEnd": "marker",
+            "style": "arrowStyle"
+        },
+        {
+            "id": "e-g",
+            "source": "e",
+            "target": "g",
+            "animated": true,
+            "type": "smoothstep",
+            "markerEnd": "marker",
+            "style": "arrowStyle"
+        },
+        {
+            "id": "f-h",
+            "source": "f",
+            "target": "h",
+            "animated": true,
+            "type": "smoothstep",
+            "markerEnd": "marker",
+            "style": "arrowStyle"
+        },
+        {
+            "id": "c-i",
+            "source": "c",
+            "target": "i",
+            "animated": true,
+            "type": "smoothstep",
+            "markerEnd": "marker",
+            "style": "arrowStyle"
+        },
+        {
+            "id": "i-k",
+            "source": "i",
+            "target": "k",
+            "animated": true,
+            "type": "smoothstep",
+            "markerEnd": "marker",
+            "style": "arrowStyle"
+        }
+    ]
+}

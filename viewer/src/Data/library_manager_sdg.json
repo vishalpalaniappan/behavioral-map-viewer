@@ -1,0 +1,164 @@
+{
+    "name": "library_manager_v2",
+    "type": "Semantic Design Graph",
+    "meta": "library_manager_meta.json",
+    "modules": {
+        "0": {
+            "name": "Global Path",
+            "type": "function",
+            "abstractions": [
+                {
+                    "id": "1"
+                },
+                {
+                    "id": "36",
+                    "type": "conditional_branch",
+                    "abstractions": [
+                        {
+                            "id": "37"
+                        }
+                    ]
+                }
+            ]
+        },
+        "2": {
+            "name": "Place Books On Shelf",
+            "type": "function",
+            "abstractions": [
+                {
+                    "id": "3",
+                    "type": "while",
+                    "abstractions": [
+                        {
+                            "id": "4"
+                        },
+                        {
+                            "id": "5"                    
+                        },
+                        {
+                            "id": "6"                    
+                        },
+                        {
+                            "id": "7",
+                            "type": "conditional_branch",
+                            "abstractions": [
+                                {
+                                    "id":"8"
+                                }
+                            ]                          
+                        },
+                        {
+                            "id": "9",
+                            "type": "conditional_branch"
+                        },
+                        {
+                            "id": "10"
+                        }
+                    ]
+                },
+                {
+                    "id": "11"
+                }
+            ]
+        },
+        "12": {
+            "name": "Acccept Book Information",
+            "type": "function",
+            "source": "23",
+            "abstractions": [
+                {
+                    "id": "13"
+                },
+                {
+                    "id": "14"
+                },
+                {
+                    "id": "15"
+                },
+                {
+                    "id": "16"
+                }
+            ]
+        },
+        "17": {
+            "name": "Library Manager",
+            "type": "function",
+            "source": "36",
+            "abstractions": [
+                {
+                    "id": "18"
+                },
+                {
+                    "id": "19"
+                },
+                {
+                    "id": "20",
+                    "type": "while",
+                    "abstractions": [
+                        {
+                            "id": "21"
+                        },
+                        {
+                            "id": "22",
+                            "type": "conditional_branch",
+                            "abstractions": [
+                                {
+                                    "id": "23",
+                                    "type": "function_call",
+                                    "target": "12"
+                                },
+                                {
+                                    "id": "24"
+                                },
+                                {
+                                    "id": "25"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "26",
+                            "type": "conditional_branch",
+                            "abstractions": [
+                                {
+                                    "id": "27",
+                                    "type": "function_call",
+                                    "target": "2"
+                                },
+                                {
+                                    "id": "28"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "29",
+                            "type": "conditional_branch",
+                            "abstractions": [
+                                {
+                                    "id": "30"
+                                },
+                                {
+                                    "id": "31"
+                                },
+                                {
+                                    "id": "32"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "33",
+                            "type": "conditional_branch",
+                            "abstractions": [
+                                {
+                                    "id": "34"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id":"35"
+                }
+            ]
+        }
+    }
+}

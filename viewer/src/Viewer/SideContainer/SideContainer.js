@@ -2,6 +2,8 @@ import React, {useCallback, useEffect, useRef, useState} from "react";
 
 import {Diagram2, Gear, Keyboard} from "react-bootstrap-icons";
 
+import {SdgAbstractions} from "../../Components/SdgAbstractions/SdgAbstractions";
+
 import "./SideContainer.scss";
 
 /**
@@ -58,6 +60,7 @@ export function SideContainer () {
 
     const getActiveMenuComponent = () => {
         if (activeMenu === 1) {
+            return <SdgAbstractions />;
         } else if (activeMenu === 2) {
         } else if (activeMenu === 3) {
         }
