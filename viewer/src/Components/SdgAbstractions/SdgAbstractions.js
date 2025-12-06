@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState} from "react";
 
 import SdgContext from "../../Providers/SdgContext";
-import {SdgModules} from "./SdgModules/SdgModules";
+import {SdgModule} from "./SdgModule/SdgModule";
 
 import "./SdgAbstractions.scss";
 
@@ -14,7 +14,7 @@ SdgAbstractions.propTypes = {
  */
 export function SdgAbstractions ({}) {
     const {sdg} = useContext(SdgContext);
-    const [modules, setModules] = useState();
+    const [modules, setModules] = useState([]);
 
     useEffect(() => {
         if (sdg) {
@@ -36,7 +36,9 @@ export function SdgAbstractions ({}) {
 
     return (
         <div id="abstractions-container">
-            <SdgModules modules={modules} />
+            {modules.map((item, index) => (
+                <SdgModule key={index} module={item} />
+            ))}
         </div>
     );
 }

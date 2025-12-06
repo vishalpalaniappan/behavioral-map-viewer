@@ -2,22 +2,22 @@ import React, {useEffect, useState} from "react";
 
 import PropTypes from "prop-types";
 
-import "./SdgModules.scss";
+import "./SdgModule.scss";
 
-SdgModules.propTypes = {
-    modules: PropTypes.array,
+SdgModule.propTypes = {
+    module: PropTypes.object,
 };
 
 /**
  * Container holding the SDG Modules.
  * @return {JSX.Element}
  */
-export function SdgModules ({modules}) {
+export function SdgModule ({module}) {
     useEffect(() => {
-
-    }, [modules]);
+        console.log(module);
+    }, [module]);
     return (
-        <div id="modules-container">
+        <div className="module-container">
         </div>
     );
 }
