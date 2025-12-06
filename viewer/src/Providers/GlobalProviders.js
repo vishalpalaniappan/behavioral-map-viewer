@@ -16,7 +16,6 @@ GlobalProviders.propTypes = {
  * @return {JSX}
  */
 function GlobalProviders ({children}) {
-    console.log(sdgMetadata, sdg);
     const [sdg, setSdg] = useState(sdgJSON);
     const [sdgMetadata, setSdgMetadata] = useState(sdgMetadataJSON);
 
