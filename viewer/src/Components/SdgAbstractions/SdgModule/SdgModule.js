@@ -1,6 +1,8 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext} from "react";
 
 import PropTypes from "prop-types";
+
+import SelectedModuleContext from "../../../Providers/SelectedModuleContext";
 
 import "./SdgModule.scss";
 
@@ -13,11 +15,14 @@ SdgModule.propTypes = {
  * @return {JSX.Element}
  */
 export function SdgModule ({module}) {
-    useEffect(() => {
-        console.log(module);
-    }, [module]);
+    const {setSelectedModule} = useContext(SelectedModuleContext);
+
+    const selectModule = () => {
+        setSelectedModule(module);
+    };
+
     return (
-        <div className="module-container">
+        <div className="module-container" onClick={selectModule}>
             <div className="module-preview"></div>
             <div className="module-name">{module.entry.name}</div>
         </div>
